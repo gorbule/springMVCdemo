@@ -17,4 +17,22 @@ public class HelloWorldController {
     public String processForm() {
         return "helloWorld";
     }
+
+    //new controller method to read form data and add data tp the model
+    @RequestMapping("/processFormVersionTwo")
+    public String letsShoutDude(javax.servlet.http.HttpServletRequest request, org.springframework.ui.Model model) {
+        //read the request parameter from the html form
+        String theName = request.getParameter("studentName");
+
+        //convert the data to all caps
+        theName = theName.toUpperCase();
+
+        //create the message
+        String result = "Yo!" + theName;
+
+        //add message to the model
+        model.addAttribute("message" , result);
+
+        return "helloWorld";
+    }
 }
