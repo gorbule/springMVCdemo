@@ -1,7 +1,10 @@
 package com.luv2code.springdemo.springMVCdemo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class HelloWorldController {
@@ -20,7 +23,7 @@ public class HelloWorldController {
 
     //new controller method to read form data and add data tp the model
     @RequestMapping("/processFormVersionTwo")
-    public String letsShoutDude(javax.servlet.http.HttpServletRequest request, org.springframework.ui.Model model) {
+    public String letsShoutDude(HttpServletRequest request, Model model) {
         //read the request parameter from the html form
         String theName = request.getParameter("studentName");
 
